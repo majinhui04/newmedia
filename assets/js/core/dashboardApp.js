@@ -47,6 +47,14 @@ define(function(require, exports, module) {
 
         });
 
+        /*$(document).ready(function(){
+            var winHeight = window.innerHeight;
+            var headerHeight = $('[role="header"]').height();
+            var footerHeight = $('[role="footer"]').height();
+            var height = winHeight - headerHeight - footerHeight;
+
+            $('[role="body"]').css('height',height+'px');
+        });*/
         function initRouteConifg(){
             // 配置路由
             routeConfig(IGrow.dashboard);

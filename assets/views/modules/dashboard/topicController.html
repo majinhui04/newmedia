@@ -1,0 +1,117 @@
+<div class="topic-wrapper">
+
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#list" data-toggle="tab" data-role="list">列表</a></li>
+        <li><a href="#edit" data-toggle="tab" data-role="edit">编辑</a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div class="tab-pane active" id="list">
+            <div class="actions">
+                <button type="button" class="btn btn-success" ng-click="toCreateView()">
+                    <i class="fa fa-plus"></i>
+                    <span>添加</span>
+                </button>
+            </div>
+            
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th class="table-index">序号</th>
+                        <th>标题</th>
+                        <th>作者</th>
+                        <th>时间</th>
+                        <th>类别</th>
+                        <th>是否显示</th>
+                        <th>是否置顶</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in dataList" class="ng-cloak">
+                        <td class="center table-index">{{ $index+1 }}</td>
+                        <td class="center">{{ data.title }}</td>
+                        <td class="center">{{ data.author }}</td>
+                        <td class="center">{{ data.create_time }}</td>
+                        <td class="center">{{ data.type.name }}</td>
+                        <td class="center">{{ data._isShow }}</td>
+                        <td class="center">{{ data._isTop }}</td>
+                        <td class="center">
+                            <button type="button" class="btn btn-primary" ng-click="toEditView(data)">
+                                <i class="fa fa-pencil"></i>
+                                <span>编辑</span>
+                            </button>
+                            <button type="button" class="btn btn-danger" ng-click="toDeleteView(data)">
+                                <i class="fa fa-trash-o"></i>
+                                <span>删除</span>
+                            </button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div class="none ng-cloak" ng-if="!dataList.length">暂无数据</div>
+        </div>
+
+        <div class="tab-pane" id="edit">
+            <form role="form" class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">标题</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="title" ng-model="formData.title">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">作者</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="author" ng-model="formData.author">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">文章类别</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" ng-options="option.id as option.name for option in topicTypeList" ng-model="formData.typeid" name="topicType"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">内容</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" ng-model="formData.content" name="content"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">发布时间</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="create_time" ng-model="formData.create_time">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">是否显示</label>
+                    <div class="col-sm-10 checkbox">
+                        <label>
+                            <input type="checkbox" name="isShow" checked>
+                        </label>
+                        
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">是否置顶</label>
+                    <div class="col-sm-10 checkbox">
+                        <label>
+                            <input type="checkbox" name="isTop">
+                        </label>
+                    
+                    </div>
+                </div>
+                <div class="form-action-box">
+                    
+                    <button type="button" class="btn btn-default" ng-click="save()">保存</button>
+                    
+                </div>
+                
+            </form>
+        </div>
+    </div>
+            
+
+</div>

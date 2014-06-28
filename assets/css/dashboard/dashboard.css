@@ -34,6 +34,7 @@
 }
 .dashboard-body {
     position: relative;
+    overflow: hidden;
 }
 .dashboard-body:after{
     content: "xxoo";
@@ -44,10 +45,13 @@
     clear: both;
 }
 .dashboard-sidebar { 
+    vertical-align: top;
+    /*display: table-cell;*/
     float: left;
     width: 220px;
     background-color: #3d3d3d;
-    height: 500px;
+    /*height: 100%;*/
+    overflow: auto;
 }
 .dashboard-sidebar .sidebar-header {
     height: 50px;
@@ -131,10 +135,14 @@
 }
 
 .dashboard-content {
+    vertical-align: top;
+    /*display: table-cell;*/
+    /*height: 100%;*/
+    overflow: auto;
     margin-left: 220px;
     overflow: hidden;
     background-color: #fff;
-    height: 500px;
+
 }
 .dashboard-breadcrumb {
     background-color: #FFF;
@@ -159,12 +167,17 @@
 .dashboard-footer {
     padding: 8px 20px 5px 20px;
     font-size: 12px;
+    background-color: #eee;
 }
 .dashboard-footer .footer-inner {
     color: #999999;
 }
 .dashboard-view>div {
     padding:15px;
+    box-sizing:content-box;
+}
+.dashboard-body {
+    
 }
 .dashboard-body .center {
     text-align: center;
@@ -197,4 +210,9 @@
 /* 文章类别 */
 .article-type-wrapper {
 
+}
+
+.form-action-box {
+    text-align: center;
+    padding: 15px;
 }

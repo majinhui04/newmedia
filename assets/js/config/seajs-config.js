@@ -30,8 +30,15 @@
                 route:'/article/type',
                 controller:'articleTypeCtrl',
                 title:'文章类型管理',
-                path:'modules/dashboard/articleTypeCtrl.js',
-                view:'modules/dashboard/articleTypeCtrl.html'
+                controllerUrl:'modules/dashboard/articleTypeCtrl.js',
+                templateUrl:'modules/dashboard/articleTypeCtrl.html'
+            },
+            {
+                route:'/topic',
+                controller:'topicController',
+                title:'文章管理',
+                controllerUrl:'modules/dashboard/topicController.js',
+                templateUrl:'modules/dashboard/topicController.html'
             },
             {
                 route:'/test',
