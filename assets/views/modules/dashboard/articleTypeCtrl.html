@@ -1,0 +1,94 @@
+<div class="article-type-wrapper">
+
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#list" data-toggle="tab" data-role="list">列表</a></li>
+        <li><a href="#edit" data-toggle="tab" data-role="edit">编辑</a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div class="tab-pane active" id="list">
+            <div class="actions">
+                <button type="button" class="btn btn-success" ng-click="toCreateView()">
+                    <i class="fa fa-plus"></i>
+                    <span>添加</span>
+                </button>
+            </div>
+            <div class="none ng-cloak" ng-hide="dataList">暂无数据</div>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th class="table-index">序号</th>
+                        <th>名称</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in dataList" class="ng-cloak">
+                        <td class="center table-index">{{ $index+1 }}</td>
+                        <td class="center">{{ data.name }}</td>
+                        <td class="center">
+                            <button type="button" class="btn btn-primary" ng-click="toEditView(data)">
+                                <i class="fa fa-pencil"></i>
+                                <span>编辑</span>
+                            </button>
+                            <button type="button" class="btn btn-danger" ng-click="toDeleteView(data)">
+                                <i class="fa fa-trash-o"></i>
+                                <span>删除</span>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="center table-index">1</td>
+                        <td class="center">辅导费</td>
+                        <td class="center">
+                            <button type="button" class="btn btn-primary">
+                                <i class="fa fa-pencil"></i>
+                                <span>编辑</span>
+                            </button>
+                            <button type="button" class="btn btn-danger">
+                                <i class="fa fa-trash-o"></i>
+                                <span>删除</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="center">1</td>
+                        <td class="center">辅导费</td>
+                        <td class="center table-actions">
+                            <button type="button" class="btn btn-primary">
+                                <i class="fa fa-pencil"></i>
+                                <span>编辑</span>
+                            </button>
+                            <button type="button" class="btn btn-danger">
+                                <i class="fa fa-trash-o"></i>
+                                <span>删除</span>
+                            </button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane article-type-form" id="edit">
+            <form role="form" class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">名称</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="aName" ng-model="formData.name">
+                    </div>
+                    
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" class="btn btn-default" ng-click="save()">保存</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+            
+
+</div>
